@@ -91,6 +91,7 @@ services:
       &&  mkdir -p /export/copyallbucket
       &&  mkdir -p /export/copybackupbucket
       &&  mkdir -p /export/compressionreversebucket
+      &&  mkdir -p /export/backupmergebucket
       &&  mkdir -p /export/delete-retain-full-bucket
       &&  mkdir -p /export/delete-retain-full-multist-bucket
       &&  mkdir -p /export/delete-retain-full-multist-fo-bucket
