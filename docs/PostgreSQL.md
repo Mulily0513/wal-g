@@ -353,6 +353,28 @@ To enable verification of the page checksums during the backup-push, use the `--
 ...
 ```
 
+### ``backup-merge``
+
+Merge a chain of delta backups into a single full backup and store it in the configured storage. This is useful to compact backup history after long periods of incremental backups.
+
+Usage:
+```bash
+wal-g backup-merge backup_name [--cleanup-after-merge]
+```
+
+Notes:
+- `backup_name`: the name of the target delta backup whose chain will be merged into a new full backup. WAL-G will use its base backup and apply all deltas to produce a new full backup named after the target without the `_D_` suffix.
+- `--cleanup-after-merge` (default: true): when enabled, WAL-G will automatically delete the old backup chain using `delete target FIND_FULL` and will clean up outdated WAL archives using `delete garbage ARCHIVES`. Permanent backups and WAL segments are preserved. There is no dry-run for this cleanup. To keep the old chain, pass `--cleanup-after-merge=false`.
+
+Examples:
+```bash
+# Merge a delta backup and keep the old chain
+wal-g backup-merge base_00000001000000030000004D_D_000000010000000300000040 --cleanup-after-merge=false
+
+# Merge a delta backup and perform automatic cleanup (default behavior)
+wal-g backup-merge base_00000001000000030000004D_D_000000010000000300000040
+```
+
 ### ``wal-fetch``
 
 When fetching WAL archives from S3, the user should pass in the archive name and the name of the file to download to. This file should not exist as WAL-G will create it for you.
