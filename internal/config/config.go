@@ -184,6 +184,7 @@ const (
 	GPSegmentsPollRetries        = "WALG_GP_SEG_POLL_RETRIES"
 	GPSegmentsUpdInterval        = "WALG_GP_SEG_UPD_INTERVAL"
 	GPSegmentStatesDir           = "WALG_GP_SEG_STATES_DIR"
+	GPDeltaBackupMergeStatesDir  = "WALG_GP_DELTA_BACKUP_MERGE_STATES_DIR"
 	GPDeleteConcurrency          = "WALG_GP_DELETE_CONCURRENCY"
 	GPAoSegSizeThreshold         = "WALG_GP_AOSEG_SIZE_THRESHOLD"
 	GPAoDeduplicationAgeLimit    = "WALG_GP_AOSEG_DEDUPLICATION_AGE_LIMIT"
@@ -611,6 +612,7 @@ var (
 		GPSegmentsPollInterval:               true,
 		GPSegmentsUpdInterval:                true,
 		GPSegmentStatesDir:                   true,
+		GPDeltaBackupMergeStatesDir:          true,
 		GPDeleteConcurrency:                  true,
 		GPAoSegSizeThreshold:                 true,
 		GPAoDeduplicationAgeLimit:            true,
